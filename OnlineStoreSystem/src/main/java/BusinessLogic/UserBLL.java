@@ -1,8 +1,35 @@
 package BusinessLogic;
 
+import Database.UserDAO;
 import Model.User;
 
+import java.sql.SQLException;
+
 public class UserBLL {
+
+    private UserDAO userDAO;
+
+
+    public UserBLL() {
+        userDAO = new UserDAO();
+    }
+
+
+    public void create(User user) throws SQLException {
+        userDAO.create(user);
+    }
+
+    public void read(User user) throws SQLException {
+        userDAO.read(user.getUserID());
+    }
+
+    public void update(User user) throws SQLException {
+        userDAO.update(user);
+    }
+
+    public void delete(User user) throws SQLException {
+        userDAO.delete(user.getUserID());
+    }
 
     public int nameValidator(String firstName, String lastName) {
         if (firstName == null || firstName.trim().isEmpty()) {

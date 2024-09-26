@@ -22,7 +22,7 @@ public class DatabaseConnection {
             } catch (ClassNotFoundException e)
             {
                 e.printStackTrace();
-                throw new SQLException("Driverul JDBC not found", e);
+                throw new SQLException("Driver JDBC not found", e);
             }
         }
         return connection;

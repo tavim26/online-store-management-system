@@ -2,14 +2,14 @@ package Model;
 
 public class Product {
 
-    private String productID;
+    private int productID;
     private String productName;
     private String productDescription;
     private double productPrice;
     private int productQuantity;
     private boolean isAvailable;
 
-    public Product(String productID, String productName, String productDescription, double productPrice, int productQuantity, boolean isAvailable) {
+    public Product(int productID, String productName, String productDescription, double productPrice, int productQuantity, boolean isAvailable) {
         this.productID = productID;
         this.productName = productName;
         this.productDescription = productDescription;
@@ -19,11 +19,11 @@ public class Product {
     }
 
 
-    public String getProductID() {
+    public int getProductID() {
         return productID;
     }
 
-    public void setProductID(String productID) {
+    public void setProductID(int productID) {
         this.productID = productID;
     }
 
