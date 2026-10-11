@@ -1,11 +1,8 @@
-module com.example.onlinestoresystem {
+module io.github.tavim26.onlinestore {
     requires javafx.controls;
     requires javafx.fxml;
-
-    requires org.controlsfx.controls;
     requires java.sql;
-    requires java.desktop;
 
-    opens com.example.onlinestoresystem to javafx.fxml;
-    exports com.example.onlinestoresystem;
+    opens io.github.tavim26.onlinestore to javafx.fxml;
+    exports io.github.tavim26.onlinestore;
 }
