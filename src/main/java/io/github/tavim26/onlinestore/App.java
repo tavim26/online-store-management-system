@@ -1,23 +1,21 @@
 package io.github.tavim26.onlinestore;
 
+import io.github.tavim26.onlinestore.ui.Navigator;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class App extends Application {
+
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
+    public void start(Stage stage) {
+        Navigator.init(stage);
+        Navigator.show(Navigator.View.LOGIN);
+        stage.setMinWidth(820);
+        stage.setMinHeight(580);
         stage.show();
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }

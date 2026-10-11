@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="io.github.tavim26.onlinestore.ui.controller.MainController"
+            styleClass="page">
+
+    <top>
+        <HBox styleClass="top-bar" spacing="14" alignment="CENTER_LEFT">
+            <Label text="Online Store" styleClass="brand"/>
+            <!-- Navigation buttons will be added here in 7b -->
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="userLabel"/>
+            <Label fx:id="balanceLabel" styleClass="balance"/>
+            <Button text="Sign out" onAction="#onLogout"/>
+        </HBox>
+    </top>
+
+    <center>
+        <StackPane fx:id="contentPane">
+            <Label fx:id="welcomeLabel" styleClass="title"/>
+        </StackPane>
+    </center>
+</BorderPane>
