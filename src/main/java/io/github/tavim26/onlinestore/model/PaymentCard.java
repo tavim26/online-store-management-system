@@ -33,5 +33,43 @@ public class PaymentCard {
         return cardType + " **** " + lastFour;
     }
 
-    // Alt+Insert -> Getter and Setter (all fields)
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getCardType() {
+        return cardType;
+    }
+
+    public void setCardType(String cardType) {
+        this.cardType = cardType;
+    }
+
+    public String getLastFour() {
+        return lastFour;
+    }
+
+    public void setLastFour(String lastFour) {
+        this.lastFour = lastFour;
+    }
+
+    public LocalDate getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(LocalDate expiryDate) {
+        this.expiryDate = expiryDate;
+    }
 }
