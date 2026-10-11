@@ -1,0 +1,24 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse / NetBeans / VS Code
+.classpath
+.project
+.settings/
+nbproject/private/
+.vscode/
+
+# Configurare locală (parole DB etc.)
+.env
+db.properties
+
+# Sistem
+.DS_Store
