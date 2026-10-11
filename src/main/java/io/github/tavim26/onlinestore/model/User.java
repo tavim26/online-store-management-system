@@ -1,61 +1,63 @@
 package io.github.tavim26.onlinestore.model;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 public class User {
 
-    private int userID;
-    private String role;
+    private int id;
+    private Role role;
     private String firstName;
     private String lastName;
     private String email;
-    private String password;
+    private String passwordHash;
     private String cnp;
     private String address;
     private String phone;
+    private BigDecimal balance;
+    private LocalDateTime createdAt;
 
-    private double balance;
+    /** A new user, not yet saved in the database. */
+    public User(Role role, String firstName, String lastName, String email,
+                String passwordHash, String cnp, String address, String phone) {
+        this(0, role, firstName, lastName, email, passwordHash, cnp, address, phone,
+                BigDecimal.ZERO, null);
+    }
 
-
-
-    public User(int userID, String role, String firstName, String lastName, String email, String password, String cnp, String address, String phone, double balance) {
-        this.userID = userID;
+    /** A user loaded from the database. */
+    public User(int id, Role role, String firstName, String lastName, String email,
+                String passwordHash, String cnp, String address, String phone,
+                BigDecimal balance, LocalDateTime createdAt) {
+        this.id = id;
         this.role = role;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
+        this.passwordHash = passwordHash;
         this.cnp = cnp;
         this.address = address;
         this.phone = phone;
-        this.balance = 0.0;
+        this.balance = balance;
+        this.createdAt = createdAt;
     }
 
-
-    public User(String role, String firstName, String lastName, String email, String password, String cnp, String address, String phone, double balance) {
-        this.role = role;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.cnp = cnp;
-        this.address = address;
-        this.phone = phone;
-
-        this.balance = 0.0;
+    public String getFullName() {
+        return firstName + " " + lastName;
     }
 
-    public int getUserID() {
-        return userID;
+    public int getId() {
+        return id;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
@@ -83,12 +85,12 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 
     public String getCnp() {
@@ -115,11 +117,19 @@ public class User {
         this.phone = phone;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

@@ -1,85 +1,77 @@
 package io.github.tavim26.onlinestore.model;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
 
-    private int orderId;
-    private User user;
-    private List<Product> products;
-    private int quantity;
-    private double totalPriece;
-    private LocalDate orderDate;
-    private String orderStatus;
+    private int id;
+    private int userId;
+    private LocalDateTime orderDate;
+    private OrderStatus status;
     private String shippingAddress;
+    private BigDecimal total;
+    private List<OrderItem> items;
 
-
-    public Order(int orderId, User user, List<Product> products, int quantity, double totalPriece, LocalDate orderDate, String orderStatus, String shippingAddress) {
-        this.orderId = orderId;
-        this.user = user;
-        this.products = products;
-        this.quantity = quantity;
-        this.totalPriece = totalPriece;
-        this.orderDate = orderDate;
-        this.orderStatus = orderStatus;
+    /** A new order, not yet saved in the database. */
+    public Order(int userId, String shippingAddress, List<OrderItem> items) {
+        this.userId = userId;
         this.shippingAddress = shippingAddress;
+        this.status = OrderStatus.PENDING;
+        this.items = new ArrayList<>(items);
+        this.total = calculateTotal();
     }
 
-    public int getOrderId() {
-        return orderId;
+    /** An order loaded from the database. */
+    public Order(int id, int userId, LocalDateTime orderDate, OrderStatus status,
+                 String shippingAddress, BigDecimal total, List<OrderItem> items) {
+        this.id = id;
+        this.userId = userId;
+        this.orderDate = orderDate;
+        this.status = status;
+        this.shippingAddress = shippingAddress;
+        this.total = total;
+        this.items = new ArrayList<>(items);
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public BigDecimal calculateTotal() {
+        return items.stream()
+                .map(OrderItem::getSubtotal)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    public User getUser() {
-        return user;
+    public int getId() {
+        return id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public double getTotalPriece() {
-        return totalPriece;
-    }
-
-    public void setTotalPriece(double totalPriece) {
-        this.totalPriece = totalPriece;
-    }
-
-    public LocalDate getOrderDate() {
+    public LocalDateTime getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(LocalDate orderDate) {
+    public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
     }
 
-    public String getOrderStatus() {
-        return orderStatus;
+    public OrderStatus getStatus() {
+        return status;
     }
 
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setStatus(OrderStatus status) {
+        this.status = status;
     }
 
     public String getShippingAddress() {
@@ -88,5 +80,21 @@ public class Order {
 
     public void setShippingAddress(String shippingAddress) {
         this.shippingAddress = shippingAddress;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public void setTotal(BigDecimal total) {
+        this.total = total;
+    }
+
+    public List<OrderItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<OrderItem> items) {
+        this.items = items;
     }
 }

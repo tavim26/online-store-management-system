@@ -2,55 +2,53 @@ package io.github.tavim26.onlinestore.model;
 
 import java.time.LocalDateTime;
 
-public class Review
-{
-    private int reviewID;
-    private User user;
-    private Product product;
-    private String reviewText;
+public class Review {
+
+    private int id;
+    private int userId;
+    private int productId;
     private int rating;
-    private LocalDateTime reviewDate;
+    private String comment;
+    private LocalDateTime createdAt;
 
+    /** A new review, not yet saved in the database. */
+    public Review(int userId, int productId, int rating, String comment) {
+        this(0, userId, productId, rating, comment, null);
+    }
 
-    public Review(int reviewID, User user, Product product, String reviewText, int rating, LocalDateTime reviewDate) {
-        this.reviewID = reviewID;
-        this.user = user;
-        this.product = product;
-        this.reviewText = reviewText;
+    /** A review loaded from the database. */
+    public Review(int id, int userId, int productId, int rating, String comment,
+                  LocalDateTime createdAt) {
+        this.id = id;
+        this.userId = userId;
+        this.productId = productId;
         this.rating = rating;
-        this.reviewDate = reviewDate;
+        this.comment = comment;
+        this.createdAt = createdAt;
     }
 
-    public int getReviewID() {
-        return reviewID;
+    public int getId() {
+        return id;
     }
 
-    public void setReviewID(int reviewID) {
-        this.reviewID = reviewID;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public Product getProduct() {
-        return product;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public String getReviewText() {
-        return reviewText;
-    }
-
-    public void setReviewText(String reviewText) {
-        this.reviewText = reviewText;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public int getRating() {
@@ -61,13 +59,19 @@ public class Review
         this.rating = rating;
     }
 
-    public LocalDateTime getReviewDate() {
-        return reviewDate;
+    public String getComment() {
+        return comment;
     }
 
-    public void setReviewDate(LocalDateTime reviewDate) {
-        this.reviewDate = reviewDate;
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }
-
-

@@ -1,69 +1,75 @@
 package io.github.tavim26.onlinestore.model;
 
+import java.math.BigDecimal;
+
 public class Product {
 
-    private int productID;
-    private String productName;
-    private String productDescription;
-    private double productPrice;
-    private int productQuantity;
-    private boolean isAvailable;
+    private int id;
+    private String name;
+    private String description;
+    private BigDecimal price;
+    private int stock;
 
-    public Product(int productID, String productName, String productDescription, double productPrice, int productQuantity, boolean isAvailable) {
-        this.productID = productID;
-        this.productName = productName;
-        this.productDescription = productDescription;
-        this.productPrice = productPrice;
-        this.productQuantity = productQuantity;
-        this.isAvailable = isAvailable;
+    /** A new product, not yet saved in the database. */
+    public Product(String name, String description, BigDecimal price, int stock) {
+        this(0, name, description, price, stock);
     }
 
-
-    public int getProductID() {
-        return productID;
-    }
-
-    public void setProductID(int productID) {
-        this.productID = productID;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getProductDescription() {
-        return productDescription;
-    }
-
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
-    }
-
-    public double getProductPrice() {
-        return productPrice;
-    }
-
-    public void setProductPrice(double productPrice) {
-        this.productPrice = productPrice;
-    }
-
-    public int getProductQuantity() {
-        return productQuantity;
-    }
-
-    public void setProductQuantity(int productQuantity) {
-        this.productQuantity = productQuantity;
+    /** A product loaded from the database. */
+    public Product(int id, String name, String description, BigDecimal price, int stock) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.stock = stock;
     }
 
     public boolean isAvailable() {
-        return isAvailable;
+        return stock > 0;
     }
 
-    public void setAvailable(boolean available) {
-        isAvailable = available;
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 }
