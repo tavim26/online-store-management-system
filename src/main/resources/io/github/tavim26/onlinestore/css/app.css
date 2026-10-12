@@ -1,0 +1,180 @@
+/* Colors are defined once and reused everywhere */
+.root {
+    -accent: #2563eb;
+    -accent-dark: #1d4ed8;
+    -muted: #6b7280;
+    -danger: #dc2626;
+    -border: #e5e7eb;
+    -fx-font-size: 14px;
+}
+
+.page {
+    -fx-background-color: #f3f4f6;
+}
+
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 28;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 16, 0, 0, 4);
+}
+
+.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.subtitle {
+    -fx-text-fill: -muted;
+}
+
+.error {
+    -fx-text-fill: -danger;
+}
+
+.text-field {
+    -fx-padding: 7 9;
+}
+
+.button {
+    -fx-padding: 7 14;
+    -fx-cursor: hand;
+}
+
+.button.primary {
+    -fx-background-color: -accent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+}
+
+.button.primary:hover {
+    -fx-background-color: -accent-dark;
+}
+
+.top-bar {
+    -fx-background-color: white;
+    -fx-padding: 12 20;
+    -fx-border-color: transparent transparent -border transparent;
+}
+
+.brand {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -accent;
+}
+
+.balance {
+    -fx-font-weight: bold;
+}
+
+/* ---- Navigation ---- */
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+}
+
+.nav-button:hover {
+    -fx-background-color: #eef2ff;
+}
+
+/* ---- Page layout ---- */
+.page-header {
+    -fx-padding: 24 24 8 24;
+}
+
+.page-content {
+    -fx-padding: 24;
+}
+
+.grid {
+    -fx-padding: 8 24 24 24;
+}
+
+.content-scroll,
+.content-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.content-scroll {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.section-title {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+/* ---- Products ---- */
+.product-card {
+    -fx-pref-width: 220;
+    -fx-min-height: 180;
+    -fx-padding: 18;
+}
+
+.product-name {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.product-price {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -accent;
+}
+
+.in-stock {
+    -fx-text-fill: #16a34a;
+}
+
+.out-of-stock {
+    -fx-text-fill: -danger;
+}
+
+.stars {
+    -fx-text-fill: #f59e0b;
+    -fx-font-size: 15px;
+}
+
+/* ---- Messages ---- */
+.success {
+    -fx-text-fill: #16a34a;
+}
+
+/* ---- Orders ---- */
+.order-card {
+    -fx-padding: 18;
+}
+
+.status {
+    -fx-padding: 2 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.status-pending {
+    -fx-background-color: #fef3c7;
+    -fx-text-fill: #92400e;
+}
+
+.status-paid {
+    -fx-background-color: #dbeafe;
+    -fx-text-fill: #1e40af;
+}
+
+.status-shipped {
+    -fx-background-color: #e0e7ff;
+    -fx-text-fill: #3730a3;
+}
+
+.status-delivered {
+    -fx-background-color: #dcfce7;
+    -fx-text-fill: #166534;
+}
+
+.status-cancelled {
+    -fx-background-color: #fee2e2;
+    -fx-text-fill: #991b1b;
+}

@@ -1,0 +1,3 @@
+db.url=jdbc:mysql://localhost:3306/store
+db.user=store_app
+db.password=change_me
