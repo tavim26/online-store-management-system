@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="io.github.tavim26.onlinestore.ui.controller.AdminProductsController"
+            styleClass="page-content">
+
+    <top>
+        <VBox spacing="4">
+            <BorderPane.margin>
+                <Insets bottom="16"/>
+            </BorderPane.margin>
+            <Label text="Manage products" styleClass="title"/>
+            <Label text="Select a product to edit it, or press New to add one." styleClass="subtitle"/>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="productTable">
+            <columns>
+                <TableColumn fx:id="nameColumn" text="Name" prefWidth="280"/>
+                <TableColumn fx:id="priceColumn" text="Price (RON)" prefWidth="120"/>
+                <TableColumn fx:id="stockColumn" text="Stock" prefWidth="80"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <right>
+        <VBox styleClass="card" spacing="8" prefWidth="330">
+            <BorderPane.margin>
+                <Insets left="16"/>
+            </BorderPane.margin>
+
+            <Label fx:id="formTitle" styleClass="section-title"/>
+
+            <Label text="Name"/>
+            <TextField fx:id="nameField"/>
+
+            <Label text="Description"/>
+            <TextArea fx:id="descriptionArea" prefRowCount="4" wrapText="true"/>
+
+            <HBox spacing="10">
+                <VBox spacing="4">
+                    <Label text="Price (RON)"/>
+                    <TextField fx:id="priceField" prefWidth="130"/>
+                </VBox>
+                <VBox spacing="4">
+                    <Label text="Stock"/>
+                    <TextField fx:id="stockField" prefWidth="90"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="8">
+                <Button fx:id="saveButton" text="Save" styleClass="primary" onAction="#onSave"/>
+                <Button text="New" onAction="#onNew"/>
+                <Button fx:id="deleteButton" text="Delete" onAction="#onDelete"/>
+            </HBox>
+            <Label fx:id="messageLabel" wrapText="true"/>
+        </VBox>
+    </right>
+</BorderPane>

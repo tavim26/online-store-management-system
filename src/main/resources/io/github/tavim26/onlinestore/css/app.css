@@ -67,3 +67,114 @@
 .balance {
     -fx-font-weight: bold;
 }
+
+/* ---- Navigation ---- */
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+}
+
+.nav-button:hover {
+    -fx-background-color: #eef2ff;
+}
+
+/* ---- Page layout ---- */
+.page-header {
+    -fx-padding: 24 24 8 24;
+}
+
+.page-content {
+    -fx-padding: 24;
+}
+
+.grid {
+    -fx-padding: 8 24 24 24;
+}
+
+.content-scroll,
+.content-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.content-scroll {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.section-title {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+/* ---- Products ---- */
+.product-card {
+    -fx-pref-width: 220;
+    -fx-min-height: 180;
+    -fx-padding: 18;
+}
+
+.product-name {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.product-price {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -accent;
+}
+
+.in-stock {
+    -fx-text-fill: #16a34a;
+}
+
+.out-of-stock {
+    -fx-text-fill: -danger;
+}
+
+.stars {
+    -fx-text-fill: #f59e0b;
+    -fx-font-size: 15px;
+}
+
+/* ---- Messages ---- */
+.success {
+    -fx-text-fill: #16a34a;
+}
+
+/* ---- Orders ---- */
+.order-card {
+    -fx-padding: 18;
+}
+
+.status {
+    -fx-padding: 2 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.status-pending {
+    -fx-background-color: #fef3c7;
+    -fx-text-fill: #92400e;
+}
+
+.status-paid {
+    -fx-background-color: #dbeafe;
+    -fx-text-fill: #1e40af;
+}
+
+.status-shipped {
+    -fx-background-color: #e0e7ff;
+    -fx-text-fill: #3730a3;
+}
+
+.status-delivered {
+    -fx-background-color: #dcfce7;
+    -fx-text-fill: #166534;
+}
+
+.status-cancelled {
+    -fx-background-color: #fee2e2;
+    -fx-text-fill: #991b1b;
+}

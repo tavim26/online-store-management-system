@@ -66,7 +66,7 @@ public class OrderService {
                     .orElseThrow(() -> new BusinessException("Order not found."));
 
             OrderStatus current = order.getStatus();
-            if (current != OrderStatus.PENDING && current != OrderStatus.PAID) {
+            if (!current.isCancellable()) {
                 throw new BusinessException("Only orders that have not been shipped can be cancelled.");
             }
             if (!orderDao.updateStatus(c, orderId, current, OrderStatus.CANCELLED)) {
@@ -89,12 +89,10 @@ public class OrderService {
             Order order = orderDao.findById(c, orderId)
                     .orElseThrow(() -> new BusinessException("Order not found."));
 
-            OrderStatus next = switch (order.getStatus()) {
-                case PAID -> OrderStatus.SHIPPED;
-                case SHIPPED -> OrderStatus.DELIVERED;
-                default -> throw new BusinessException(
-                        "An order with status " + order.getStatus() + " cannot be advanced.");
-            };
+            OrderStatus next = order.getStatus().next();
+            if (next == null) {
+                throw new BusinessException("An order with status " + order.getStatus() + " cannot be advanced.");
+            }
             if (!orderDao.updateStatus(c, orderId, order.getStatus(), next)) {
                 throw new BusinessException("The order was modified in the meantime. Please try again.");
             }

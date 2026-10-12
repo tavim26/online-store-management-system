@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="io.github.tavim26.onlinestore.ui.controller.AdminOrdersController"
+            fitToWidth="true" styleClass="content-scroll">
+
+    <VBox spacing="16" styleClass="page-content">
+        <Label text="All orders" styleClass="title"/>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Status"/>
+            <ChoiceBox fx:id="statusFilter" prefWidth="160"/>
+            <Label fx:id="messageLabel" wrapText="true"/>
+        </HBox>
+        <VBox fx:id="ordersBox" spacing="14"/>
+    </VBox>
+</ScrollPane>

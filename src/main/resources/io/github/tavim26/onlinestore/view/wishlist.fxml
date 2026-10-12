@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="io.github.tavim26.onlinestore.ui.controller.WishlistController"
+            fitToWidth="true" styleClass="content-scroll">
+
+    <VBox spacing="16" styleClass="page-content">
+        <Label text="My wishlist" styleClass="title"/>
+        <Label fx:id="messageLabel" wrapText="true"/>
+        <VBox fx:id="itemsBox" styleClass="card" spacing="14"/>
+    </VBox>
+</ScrollPane>

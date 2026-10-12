@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="io.github.tavim26.onlinestore.ui.controller.ProductsController">
+
+    <top>
+        <VBox spacing="10" styleClass="page-header">
+            <Label text="Products" styleClass="title"/>
+            <HBox spacing="14" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" promptText="Search products..." prefWidth="300"/>
+                <CheckBox fx:id="inStockOnly" text="Only in stock"/>
+                <Label fx:id="messageLabel" wrapText="true"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-scroll">
+            <FlowPane fx:id="productGrid" hgap="16" vgap="16" styleClass="grid"/>
+        </ScrollPane>
+    </center>
+</BorderPane>

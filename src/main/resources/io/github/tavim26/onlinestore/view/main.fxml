@@ -8,9 +8,20 @@
             styleClass="page">
 
     <top>
-        <HBox styleClass="top-bar" spacing="14" alignment="CENTER_LEFT">
+        <HBox styleClass="top-bar" spacing="6" alignment="CENTER_LEFT">
             <Label text="Online Store" styleClass="brand"/>
-            <!-- Navigation buttons will be added here in 7b -->
+            <Region prefWidth="12"/>
+            <Button text="Products" styleClass="nav-button" onAction="#onProducts"/>
+            <Button fx:id="cartButton" text="Cart" styleClass="nav-button" onAction="#onCart"/>
+            <Button text="Orders" styleClass="nav-button" onAction="#onOrders"/>
+            <Button text="Wishlist" styleClass="nav-button" onAction="#onWishlist"/>
+            <Button text="Account" styleClass="nav-button" onAction="#onAccount"/>
+            <MenuButton fx:id="adminMenu" text="Admin" styleClass="nav-button">
+                <items>
+                    <MenuItem text="Manage products" onAction="#onAdminProducts"/>
+                    <MenuItem text="All orders" onAction="#onAdminOrders"/>
+                </items>
+            </MenuButton>
             <Region HBox.hgrow="ALWAYS"/>
             <Label fx:id="userLabel"/>
             <Label fx:id="balanceLabel" styleClass="balance"/>
@@ -19,8 +30,6 @@
     </top>
 
     <center>
-        <StackPane fx:id="contentPane">
-            <Label fx:id="welcomeLabel" styleClass="title"/>
-        </StackPane>
+        <StackPane fx:id="contentPane"/>
     </center>
 </BorderPane>

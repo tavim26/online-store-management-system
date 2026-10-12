@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="io.github.tavim26.onlinestore.ui.controller.ProductDetailsController"
+            fitToWidth="true" styleClass="content-scroll">
+
+    <VBox spacing="16" styleClass="page-content">
+        <Hyperlink text="← Back to products" onAction="#onBack"/>
+
+        <VBox styleClass="card" spacing="10">
+            <Label fx:id="nameLabel" styleClass="title" wrapText="true"/>
+            <Label fx:id="priceLabel" styleClass="product-price"/>
+            <Label fx:id="stockLabel"/>
+            <Label fx:id="descriptionLabel" wrapText="true"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Spinner fx:id="quantitySpinner" prefWidth="90"/>
+                <Button fx:id="addToCartButton" text="Add to cart" styleClass="primary" onAction="#onAddToCart"/>
+                <Button fx:id="wishlistButton" text="Add to wishlist" onAction="#onAddToWishlist"/>
+            </HBox>
+            <Label fx:id="messageLabel" wrapText="true"/>
+        </VBox>
+
+        <VBox styleClass="card" spacing="10">
+            <Label text="Reviews" styleClass="section-title"/>
+            <Label fx:id="ratingLabel" styleClass="subtitle"/>
+            <VBox fx:id="reviewList" spacing="12"/>
+
+            <Separator/>
+
+            <Label text="Write a review" styleClass="product-name"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Rating"/>
+                <ChoiceBox fx:id="ratingChoice"/>
+            </HBox>
+            <TextArea fx:id="commentArea" promptText="What did you think of this product? (optional)"
+                      prefRowCount="3" wrapText="true"/>
+            <Button fx:id="submitReviewButton" text="Submit review" onAction="#onSubmitReview"/>
+            <Label fx:id="reviewMessageLabel" wrapText="true"/>
+        </VBox>
+    </VBox>
+</ScrollPane>

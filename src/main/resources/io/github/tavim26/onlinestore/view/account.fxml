@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="io.github.tavim26.onlinestore.ui.controller.AccountController"
+            fitToWidth="true" styleClass="content-scroll">
+
+    <VBox spacing="16" styleClass="page-content">
+        <Label text="My account" styleClass="title"/>
+
+        <!-- Balance and payment cards -->
+        <VBox styleClass="card" spacing="10">
+            <HBox alignment="CENTER_LEFT">
+                <Label text="Balance" styleClass="section-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="balanceLabel" styleClass="product-price"/>
+            </HBox>
+
+            <Label text="Payment cards" styleClass="product-name"/>
+            <VBox fx:id="cardsBox" spacing="8"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="cardNumberField" promptText="Card number (16 digits)" prefWidth="230"/>
+                <TextField fx:id="cardExpiryField" promptText="MM/YY" prefWidth="80"/>
+                <Button fx:id="addCardButton" text="Add card" onAction="#onAddCard"/>
+            </HBox>
+
+            <Label text="Top up balance" styleClass="product-name"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <ChoiceBox fx:id="topUpCardChoice" prefWidth="200"/>
+                <TextField fx:id="topUpAmountField" promptText="Amount (RON)" prefWidth="140"/>
+                <Button fx:id="topUpButton" text="Top up" styleClass="primary" onAction="#onTopUp"/>
+            </HBox>
+            <Label fx:id="cardsMessageLabel" wrapText="true"/>
+        </VBox>
+
+        <!-- Profile -->
+        <VBox styleClass="card" spacing="10">
+            <Label text="Profile" styleClass="section-title"/>
+            <GridPane hgap="14" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50"/>
+                    <ColumnConstraints percentWidth="50"/>
+                </columnConstraints>
+
+                <VBox spacing="4" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                    <Label text="First name"/>
+                    <TextField fx:id="firstNameField"/>
+                </VBox>
+                <VBox spacing="4" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                    <Label text="Last name"/>
+                    <TextField fx:id="lastNameField"/>
+                </VBox>
+
+                <VBox spacing="4" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                    <Label text="Email"/>
+                    <TextField fx:id="emailField"/>
+                </VBox>
+                <VBox spacing="4" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                    <Label text="Phone"/>
+                    <TextField fx:id="phoneField"/>
+                </VBox>
+
+                <VBox spacing="4" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                    <Label text="CNP"/>
+                    <TextField fx:id="cnpField"/>
+                </VBox>
+
+                <VBox spacing="4" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                    <Label text="Address"/>
+                    <TextField fx:id="addressField"/>
+                </VBox>
+            </GridPane>
+            <Button fx:id="saveProfileButton" text="Save changes" styleClass="primary" onAction="#onSaveProfile"/>
+            <Label fx:id="profileMessageLabel" wrapText="true"/>
+        </VBox>
+
+        <!-- Password -->
+        <VBox styleClass="card" spacing="10">
+            <Label text="Change password" styleClass="section-title"/>
+            <HBox spacing="10">
+                <PasswordField fx:id="currentPasswordField" promptText="Current password"/>
+                <PasswordField fx:id="newPasswordField" promptText="New password"/>
+                <PasswordField fx:id="confirmPasswordField" promptText="Confirm new password"/>
+            </HBox>
+            <Button fx:id="changePasswordButton" text="Change password" onAction="#onChangePassword"/>
+            <Label fx:id="passwordMessageLabel" wrapText="true"/>
+        </VBox>
+    </VBox>
+</ScrollPane>

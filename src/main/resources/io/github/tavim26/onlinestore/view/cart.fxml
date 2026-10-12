@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="io.github.tavim26.onlinestore.ui.controller.CartController"
+            fitToWidth="true" styleClass="content-scroll">
+
+    <VBox spacing="16" styleClass="page-content">
+        <Label text="Your cart" styleClass="title"/>
+
+        <VBox fx:id="linesBox" styleClass="card" spacing="14"/>
+
+        <VBox fx:id="checkoutBox" styleClass="card" spacing="10">
+            <HBox alignment="CENTER_LEFT">
+                <Label text="Total" styleClass="section-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="totalLabel" styleClass="product-price"/>
+            </HBox>
+            <Label fx:id="balanceInfoLabel" styleClass="subtitle" wrapText="true"/>
+            <Label text="Shipping address"/>
+            <TextField fx:id="addressField"/>
+            <Button fx:id="placeOrderButton" text="Place order" styleClass="primary" onAction="#onPlaceOrder"/>
+        </VBox>
+
+        <Label fx:id="messageLabel" wrapText="true"/>
+    </VBox>
+</ScrollPane>

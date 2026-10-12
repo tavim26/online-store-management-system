@@ -6,6 +6,7 @@ import io.github.tavim26.onlinestore.dao.UserDao;
 import io.github.tavim26.onlinestore.model.Role;
 import io.github.tavim26.onlinestore.model.User;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.regex.Pattern;
@@ -142,5 +143,9 @@ public class UserService {
         return e.isConstraintViolation()
                 ? new BusinessException("An account with this email or CNP already exists.")
                 : e;
+    }
+
+    public List<User> getAll() {
+        return Database.withConnection(userDao::findAll);
     }
 }
